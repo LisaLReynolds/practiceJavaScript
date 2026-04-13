@@ -42,3 +42,26 @@ function sumEvenNums(secondArray) {
 }
 
 console.log(sumEvenNums(secondArray)); //12
+
+//Task 3: Objects as Counters
+//Write a function that returns how many times each number appears in an array
+
+//array
+//funcion that checks each number against the array for that same number and stores that number in an accumulator variable
+
+let thirdArray = [1, 2, 2, 3, 1, 2];
+
+function countNumbers(thirdArray) {
+  const count = {}; //count is object (accumulator)
+
+  for (let num of thirdArray) {
+    count[num] = (count[num] || 0) + 1; //assignment expression
+    //left side - where the value is stored, right side- the value being computed
+  }
+
+  return count;
+}
+//Objects in js automatically create properties when you assign a vlue to a new key
+//so   count[1] = 1     if count[1] didn't exitst - js creates it automatically
+
+console.log(countNumbers(thirdArray)); //{1:2, 2:3, 3:1}
