@@ -118,3 +118,41 @@ console.log(testForIn(string1)); // still shows b, but not a reliable way to com
 
 //Use for...of when order matters
 //Use for...in when you need to examine object keys
+
+//Task 6: sum all numbers in an array
+
+let array4 = [1, 2, 3];
+
+function func1(array4) {
+  let sum = 0;
+  for (let num of array4) {
+    sum += num;
+  }
+  return sum;
+}
+
+console.log(func1(array4)); //6
+
+//or with long version loop that does the exact same thing with different syntax
+
+function func2(array4) {
+  let sum = 0;
+  for (let i = 0; i < array4.length; i++) {
+    sum += array4[i];
+  }
+  return sum;
+}
+
+console.log(func2(array4)); //6
+
+//Task 7: Count numbers in an array
+
+let array5 = [1, 1, 2, 3];
+
+let countChar = {};
+
+for (let char of array5) {
+  countChar[char] = (countChar[char] || 0) + 1;
+}
+
+console.log(countChar);
