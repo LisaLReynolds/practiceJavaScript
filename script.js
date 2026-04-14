@@ -65,3 +65,56 @@ function countNumbers(thirdArray) {
 //so   count[1] = 1     if count[1] didn't exitst - js creates it automatically
 
 console.log(countNumbers(thirdArray)); //{1:2, 2:3, 3:1}
+
+//Task 4: First Unique Character
+//given a string, return the first character that does NOT repeat
+
+//Need to create two passes
+//1. count frequency of each character
+//2. scan again to find the first count of 1
+
+let string1 = "beetcode";
+
+function findFirstUnique(string1) {
+  count = {};
+
+  for (let char of string1) {
+    //iterates over characters in the string - creates key value pairs in count object l:1 etc
+    count[char] = (count[char] || 0) + 1;
+  }
+
+  for (let char of string1) {
+    //scan over original string again to preserve "first" logic - the object (count) does not gurentee order, the string preserves the original order of characters
+    if (count[char] === 1) {
+      //the second loop uses the object as a lookup table
+      return char;
+    }
+  }
+  return null;
+}
+
+console.log(findFirstUnique(string1)); //b
+
+// the code below contains a for...in loop as the second loop
+
+function testForIn(string1) {
+  count = {};
+
+  for (let char of string1) {
+    //populates count object with key value pairs
+    count[char] = (count[char] || 0) + 1;
+  }
+
+  for (let key in count) {
+    // for...in iterates over object keys (but original string order is not gurenteed, so not a good use for the original task)
+    if (count[key] === 1) {
+      //checking that key === 1
+      return key;
+    }
+  }
+}
+
+console.log(testForIn(string1)); // still shows b, but not a reliable way to complete the original task of finding the first character in the string that does not repeat
+
+//Use for...of when order matters
+//Use for...in when you need to examine object keys
