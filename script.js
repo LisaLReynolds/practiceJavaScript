@@ -208,3 +208,47 @@ function uniqueNumArr(array9) {
 }
 
 console.log(uniqueNumArr(array9)); //[5, 1, 2, 0]
+
+//Task 11: Two Sum
+//given an array of numbers and a target number, return the dndices of two numbers that add up to the target
+
+let nums = [2, 7, 11, 15];
+let target = 9;
+
+function twoSums(nums, target) {
+  const map = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
+    let complement = target - num;
+
+    if (map[complement] !== undefined) {
+      //checking map object to see if complement exists
+      return [map[complement], i]; //if complement exists as the key, it will return the value which is the index
+    }
+    map[num] = i; //creates the key value pair/properties in the map object with num as key and i as value, so the first would be { 2:0 } , when the loop runs again it checks the next num against what has already been stored
+  }
+}
+//In the code above - map stores each number as a key and its index as the value so you can quickly find where a matching number was seen before
+
+//Task 12: Find if pair exists (yes/no)
+//return true is any two numbers add up to the target, otherwiser false
+
+let nums12 = [3, 1, 4];
+let target12 = 5;
+
+function trueOrFalse(nums12, target12) {
+  const seen = {};
+  for (let num12 of nums12) {
+    let complement12 = target12 - num12;
+
+    if (seen[complement12] === true) {
+      //checking for value of true in seen object (all elements from array that have been checked will have a value of true as per code below)
+      return true;
+    }
+    seen[num12] = true; //stores current number as property in seen object with element as key and true as value{3:true...}
+  }
+  return false;
+}
+
+console.log(trueOrFalse(nums12, target12));
