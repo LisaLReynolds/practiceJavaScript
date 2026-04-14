@@ -163,7 +163,7 @@ const arr = [2, 4, 6, 7];
 
 for (let num of arr) {
   if (num % 2 !== 0) {
-    console.log(num);
+    console.log(num); //7
     break;
   }
 }
