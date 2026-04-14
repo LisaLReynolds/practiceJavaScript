@@ -155,4 +155,16 @@ for (let char of array5) {
   countChar[char] = (countChar[char] || 0) + 1;
 }
 
-console.log(countChar);
+console.log(countChar); //{1: 2, 2: 1, 3: 1}
+
+//Task 8: conditionals inside loops
+
+const arr = [2, 4, 6, 7];
+
+for (let num of arr) {
+  if (num % 2 !== 0) {
+    console.log(num);
+    break;
+  }
+}
+//finds first odd number
