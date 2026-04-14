@@ -168,3 +168,43 @@ for (let num of arr) {
   }
 }
 //finds first odd number
+
+//Task 9: given an array of numbers, return the first number that appears only once
+
+let array9 = [4, 5, 1, 2, 0, 4];
+
+function findFirstNonRep(array9) {
+  let count = {}; //frequency counter (object)
+  for (let num of array9) {
+    count[num] = (count[num] || 0) + 1;
+  }
+  for (let num of array9) {
+    if (count[num] === 1) {
+      return num;
+    }
+  }
+  return null;
+}
+console.log(findFirstNonRep(array9)); //5
+
+//Task 10: using array above return an array of all numbers that appear exactly once
+//first loop iterates over array and finds frequency of each element
+//second loop iterates over values and finds all that ===1
+//values that === 1 need to be stored in a New array
+//the new array is returned by the function
+
+function uniqueNumArr(array9) {
+  const count = {}; //frequency counter (object) -- frequency map
+  const result = []; //array accumulator -- collected output
+  for (let num of array9) {
+    count[num] = (count[num] || 0) + 1;
+  }
+  for (let num of array9) {
+    if (count[num] === 1) {
+      result.push(num); //.push() is array method that adds element to the end of array
+    }
+  }
+  return result;
+}
+
+console.log(uniqueNumArr(array9)); //[5, 1, 2, 0]
